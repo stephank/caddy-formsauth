@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login required</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      * {
+        font-family: system-ui, sans-serif;
+      }
+      .login {
+        margin: 4rem 1rem;
+        padding: 0 1rem;
+        text-align: center;
+      }
+      .login label span {
+        display: inline-block;
+        width: 6em;
+        text-align: right;
+      }
+      .login input,
+      .login button {
+        padding: 0.4rem 0.6rem;
+        font-size: 100%;
+      }
+      .login input {
+        width: 20em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login">
+      <h2>Login required</h2>
+      <form method="post" action="{{ .LoginRoute }}">
+        <p>
+          <label>
+            <span>Username:</span>
+            <input type="text" name="username" autofocus />
+          </label>
+        </p>
+        <p>
+          <label>
+            <span>Password:</span>
+            <input type="password" name="password" />
+          </label>
+        </p>
+        <p>
+          <input type="hidden" name="returnTo" value="{{ .ReturnTo }}" />
+          <button>Login</button>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>
